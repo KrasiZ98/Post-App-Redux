@@ -1,0 +1,12 @@
+export const CREATE_USERS = "CREATE_USERS";
+
+export const UPDATE_USER = "UPDATE_USER";
+export const DELETE_USER = "DELETE_USER";
+export const LOGOUT_USER = "LOGOUT_USER";
+export const LOGIN_USER = "LOGIN_USER";
+
+export const CREDENTIAL_USER_ERROR = "CREDENTIAL_USER_ERROR";
+export const CREDENTIAL_USER_SUCCESS = "CREDENTIAL_USER_SUCCESS";
+
+export const ADD_POST = "ADD_POST";
+
