@@ -8,7 +8,7 @@ export const Catalog = () => {
     const registeredUsers = state.users?.filter((users) => users.id !== state.user?.id);
 
 
-    console.log(state.users);
+
     return (
         <section className='catalogPage'>
             <div className='catalogWhrapper'>

@@ -25,21 +25,26 @@ export const createUsersApi = (user, navigate) => (dispatch) => {
 
 export const loginUserApi = (user, navigate) => (dispatch) => {
     const registeredUsers = JSON.parse(localStorage.getItem("users"));
-    const existingUser = registeredUsers.find((storageUser) => storageUser.email === user.email);
+    if (registeredUsers !== null) {
 
-    if (existingUser !== undefined && existingUser.password === user.password) {
-        const successMesg = `Login with user ${user.email} success.`;
-        dispatch(loginUser(existingUser));
-        dispatch(crendenUserSuccessApi(successMesg));
-        navigate('/')
+
+
+        const existingUser = registeredUsers.find((storageUser) => storageUser.email === user.email);
+
+        if (existingUser !== undefined && existingUser.password === user.password) {
+            const successMesg = `Login with user ${user.email} success.`;
+            dispatch(loginUser(existingUser));
+            dispatch(crendenUserSuccessApi(successMesg));
+            navigate('/')
+        } else {
+            const error = "Email or Password don't match.";
+            dispatch(crendenUserErrorApi(error));
+
+        }
     } else {
         const error = "Email or Password don't match.";
         dispatch(crendenUserErrorApi(error));
-
     }
-    console.log("registeredUsers:", registeredUsers);
-    console.log("user:", user);
-    console.log("existingUser:", existingUser);
 }
 
 export const logoutUserApi = (navigate) => (dispatch) => {
@@ -78,7 +83,6 @@ export const crendenUserSuccessApi = (message) => (dispatch) => {
 }
 
 export const addPostApi = (senderUser, recipientUserId, postMessage, successMesg) => (dispatch) => {
-    console.log(senderUser, recipientUserId, postMessage);
     dispatch(addPost(senderUser, recipientUserId, postMessage));
     dispatch(crendenUserSuccessApi(successMesg));
 };

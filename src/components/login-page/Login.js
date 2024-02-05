@@ -29,7 +29,7 @@ export const Login = () => {
         const error = loginValidation(formValue);
 
         if (Object.values(error).length === 0) {
-            console.log(formValue);
+         
             dispatch(loginUserApi(formValue, navigate));
         } else {
             const formError = "Write the empty fields."

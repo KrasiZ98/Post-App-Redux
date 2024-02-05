@@ -9,7 +9,7 @@ export const Navigation = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    console.log(user);
+  
     return (
         <header>
             <div className='logo'>

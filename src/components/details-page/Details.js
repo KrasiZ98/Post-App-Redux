@@ -16,10 +16,6 @@ export const Details = () => {
     const currentUser = users.find((user) => user.id === profileId);
     const [postContent, setPostContent] = useState('');
 
-    console.log('Profile ID:', profileId);
-    console.log('Current User:', currentUser);
-    console.log('User:', user);
-
     const handlePost = () => {
         if (postContent === '') {
             alert('You cannot send empty message.');
@@ -29,8 +25,6 @@ export const Details = () => {
             setPostContent('');
         }
     };
-
-    console.log(message)
 
     return (
         <>
@@ -50,6 +44,7 @@ export const Details = () => {
                 {user.email &&
                     <div className="post-section">
                         <textarea placeholder="Write your post here..."
+                            value={postContent}
                             onChange={(e) => setPostContent(e.target.value)}></textarea>
                         <button onClick={handlePost} >Post</button>
                     </div>
